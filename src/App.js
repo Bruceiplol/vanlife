@@ -1,14 +1,24 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+
 
 function App() {
   return (
-    <div >
-      <header >
-        <h1>app</h1>
-        <h2>app2</h2>
+    <BrowserRouter>
+      <header>
+        <Link className="site-logo" to="/">#VanLife</Link>
+        <nav>
+          <Link to="/about">About</Link>
+        </nav>
       </header>
-    </div>
-  );
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
